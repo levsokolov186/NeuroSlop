@@ -1,0 +1,45 @@
+.drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+    z-index: 1000;
+}
+
+.drawer-overlay--visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.drawer {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 320px;
+    max-width: 90vw;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.25s ease;
+    z-index: 1001;
+    overflow-y: auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.drawer--right {
+    right: 0;
+    transform: translateX(100%);
+}
+.drawer--right.drawer--open {
+    transform: translateX(0);
+}
+
+.drawer--left {
+    left: 0;
+    transform: translateX(-100%);
+}
+.drawer--left.drawer--open {
+    transform: translateX(0);
+}
