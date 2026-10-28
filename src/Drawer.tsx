@@ -6,9 +6,17 @@ type DrawerProps = {
     onClose: () => void
     children: React.ReactNode
     side?: "left" | "right"
+    className?: string
 }
 
-export function Drawer({isOpen, onClose, children, side='right'}: DrawerProps) {
+export function Drawer({
+                           isOpen,
+                           onClose,
+                           children,
+                           side = 'right',
+                           className='',
+                       }:DrawerProps)
+{
     useEffect(() => {
         if (!isOpen) {
             return
@@ -43,7 +51,7 @@ export function Drawer({isOpen, onClose, children, side='right'}: DrawerProps) {
             />
 
             <aside
-                className={`drawer drawer--${side} ${isOpen ? 'drawer--open' : ''}`}
+                className={`drawer drawer--${side} ${isOpen ? 'drawer--open' : ''} ${className}`}
                 role="dialog"
                 aria-modal="true"
             >
